@@ -17,23 +17,23 @@ namespace EMS.BaseClass
         /// </summary>
         /// <param name="client"> </param>
         /// <returns> 返回往来单位id </returns>
-//         public int AddUnits(cUnitsInfo units)
-//         {
-//             SqlParameter[] prams =
-//                 {
-//                     data.MakeInParam("@unitcode", SqlDbType.VarChar, 5, units.UnitCode),
-//                     data.MakeInParam("@fullname", SqlDbType.VarChar, 30, units.FullName),
-//                     data.MakeInParam("@tax", SqlDbType.VarChar, 30, units.Tax),
-//                     data.MakeInParam("@tel", SqlDbType.VarChar, 20, units.Tel),
-//                     data.MakeInParam("@linkman", SqlDbType.VarChar, 10, units.LinkMan),
-//                     data.MakeInParam("@address", SqlDbType.VarChar, 60, units.Address),
-//                     data.MakeInParam("@accounts", SqlDbType.VarChar, 80, units.Accounts),
-//                 };
-//             return
-//                 (data.RunProc(
-//                     "INSERT INTO tb_units (unitcode, fullname, tax, tel, linkman, address, accounts) VALUES (@unitcode,@fullname,@tax,@tel,@linkman,@address,@accounts)",
-//                     prams));
-//         }
+        public int AddUnits(cUnitsInfo units)
+        {
+            SqlParameter[] prams =
+                 {
+                     data.MakeInParam("@unitcode", SqlDbType.VarChar, 5, units.UnitCode),
+                     data.MakeInParam("@fullname", SqlDbType.VarChar, 30, units.FullName),
+                     data.MakeInParam("@tax", SqlDbType.VarChar, 30, units.Tax),
+                     data.MakeInParam("@tel", SqlDbType.VarChar, 20, units.Tel),
+                     data.MakeInParam("@linkman", SqlDbType.VarChar, 10, units.LinkMan),
+                     data.MakeInParam("@address", SqlDbType.VarChar, 60, units.Address),
+                     data.MakeInParam("@accounts", SqlDbType.VarChar, 80, units.Accounts),
+                 };
+            return
+                (data.RunProc(
+                    "INSERT INTO tb_units (unitcode, fullname, tax, tel, linkman, address, accounts) VALUES (@unitcode,@fullname,@tax,@tel,@linkman,@address,@accounts)",
+                    prams));
+        }
 
         #endregion
 
