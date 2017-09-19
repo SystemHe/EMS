@@ -2,45 +2,45 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-//ÒıÓÃÀà¿â
+//å¼•ç”¨ç±»åº“
 
 namespace EMS.BaseClass
 {
     internal class BaseInfo
     {
-        private readonly DataBase data = new DataBase(); //´´½¨DataBaseÀàµÄ¶ÔÏó
+        private readonly DataBase data = new DataBase(); //åˆ›å»ºDataBaseç±»çš„å¯¹è±¡
 
-        #region Ìí¼Ó--ÍùÀ´µ¥Î»ĞÅÏ¢
+        #region æ·»åŠ --å¾€æ¥å•ä½ä¿¡æ¯
 
         /// <summary>
-        ///   Ìí¼ÓÍùÀ´µ¥Î»
+        ///   æ·»åŠ å¾€æ¥å•ä½
         /// </summary>
         /// <param name="client"> </param>
-        /// <returns> ·µ»ØÍùÀ´µ¥Î»id </returns>
-        public int AddUnits(cUnitsInfo units)
-        {
-            SqlParameter[] prams =
-                {
-                    data.MakeInParam("@unitcode", SqlDbType.VarChar, 5, units.UnitCode),
-                    data.MakeInParam("@fullname", SqlDbType.VarChar, 30, units.FullName),
-                    data.MakeInParam("@tax", SqlDbType.VarChar, 30, units.Tax),
-                    data.MakeInParam("@tel", SqlDbType.VarChar, 20, units.Tel),
-                    data.MakeInParam("@linkman", SqlDbType.VarChar, 10, units.LinkMan),
-                    data.MakeInParam("@address", SqlDbType.VarChar, 60, units.Address),
-                    data.MakeInParam("@accounts", SqlDbType.VarChar, 80, units.Accounts),
-                };
-            return
-                (data.RunProc(
-                    "INSERT INTO tb_units (unitcode, fullname, tax, tel, linkman, address, accounts) VALUES (@unitcode,@fullname,@tax,@tel,@linkman,@address,@accounts)",
-                    prams));
-        }
+        /// <returns> è¿”å›å¾€æ¥å•ä½id </returns>
+//         public int AddUnits(cUnitsInfo units)
+//         {
+//             SqlParameter[] prams =
+//                 {
+//                     data.MakeInParam("@unitcode", SqlDbType.VarChar, 5, units.UnitCode),
+//                     data.MakeInParam("@fullname", SqlDbType.VarChar, 30, units.FullName),
+//                     data.MakeInParam("@tax", SqlDbType.VarChar, 30, units.Tax),
+//                     data.MakeInParam("@tel", SqlDbType.VarChar, 20, units.Tel),
+//                     data.MakeInParam("@linkman", SqlDbType.VarChar, 10, units.LinkMan),
+//                     data.MakeInParam("@address", SqlDbType.VarChar, 60, units.Address),
+//                     data.MakeInParam("@accounts", SqlDbType.VarChar, 80, units.Accounts),
+//                 };
+//             return
+//                 (data.RunProc(
+//                     "INSERT INTO tb_units (unitcode, fullname, tax, tel, linkman, address, accounts) VALUES (@unitcode,@fullname,@tax,@tel,@linkman,@address,@accounts)",
+//                     prams));
+//         }
 
         #endregion
 
-        #region ĞŞ¸Ä--ÍùÀ´µ¥Î»ĞÅÏ¢
+        #region ä¿®æ”¹--å¾€æ¥å•ä½ä¿¡æ¯
 
         /// <summary>
-        ///   ĞŞ¸ÄÍùÀ´µ¥Î»ĞÅÏ¢
+        ///   ä¿®æ”¹å¾€æ¥å•ä½ä¿¡æ¯
         /// </summary>
         /// <param name="units"> </param>
         /// <returns> </returns>
@@ -64,13 +64,13 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region É¾³ı--ÍùÀ´µ¥Î»ĞÅÏ¢
+        #region åˆ é™¤--å¾€æ¥å•ä½ä¿¡æ¯
 
         /// <summary>
-        ///   É¾³ıÍùÀ´µ¥Î»
+        ///   åˆ é™¤å¾€æ¥å•ä½
         /// </summary>
         /// <param name="client"> </param>
-        /// <returns> ·µ»ØÍùÀ´µ¥Î»id </returns>
+        /// <returns> è¿”å›å¾€æ¥å•ä½id </returns>
         public int DeleteUnits(cUnitsInfo units)
         {
             SqlParameter[] prams =
@@ -82,10 +82,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ²éÑ¯--ÍùÀ´µ¥Î»ĞÅÏ¢
+        #region æŸ¥è¯¢--å¾€æ¥å•ä½ä¿¡æ¯
 
         /// <summary>
-        ///   ¸ù¾İ--µ¥Î»±àºÅ--µÃµ½ÍùÀ´µ¥Î»ĞÅÏ¢
+        ///   æ ¹æ®--å•ä½ç¼–å·--å¾—åˆ°å¾€æ¥å•ä½ä¿¡æ¯
         /// </summary>
         /// <param name="units"> </param>
         /// <param name="tbName"> </param>
@@ -100,7 +100,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İ--µ¥Î»Ãû³Æ--µÃµ½ÍùÀ´µ¥Î»ĞÅÏ¢
+        ///   æ ¹æ®--å•ä½åç§°--å¾—åˆ°å¾€æ¥å•ä½ä¿¡æ¯
         /// </summary>
         /// <param name="units"> </param>
         /// <param name="tbName"> </param>
@@ -115,7 +115,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µÃµ½ËùÓĞ--ÍùÀ´µ¥Î»ĞÅÏ¢
+        ///   å¾—åˆ°æ‰€æœ‰--å¾€æ¥å•ä½ä¿¡æ¯
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -126,12 +126,12 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region Ìí¼Ó--¿â´æÉÌÆ·ĞÅÏ¢
+        #region æ·»åŠ --åº“å­˜å•†å“ä¿¡æ¯
 
         /// <summary>
-        ///   Ìí¼Ó¿â´æÉÌÆ·»ù±¾ĞÅÏ¢
+        ///   æ·»åŠ åº“å­˜å•†å“åŸºæœ¬ä¿¡æ¯
         /// </summary>
-        /// <param name="stock"> ¿â´æÉÌÆ·Êı¾İ½á¹¹Àà¶ÔÏó </param>
+        /// <param name="stock"> åº“å­˜å•†å“æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
         /// <returns> </returns>
         public int AddStock(cStockInfo stock)
         {
@@ -152,12 +152,12 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ĞŞ¸Ä--¿â´æÉÌÆ·ĞÅÏ¢
+        #region ä¿®æ”¹--åº“å­˜å•†å“ä¿¡æ¯
 
         /// <summary>
-        ///   ĞŞ¸Ä¿â´æÉÌÆ·ĞÅÏ¢
+        ///   ä¿®æ”¹åº“å­˜å•†å“ä¿¡æ¯
         /// </summary>
-        /// <param name="stock"> ¿â´æÉÌÆ·Êı¾İ½á¹¹Àà¶ÔÏó </param>
+        /// <param name="stock"> åº“å­˜å•†å“æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
         /// <returns> </returns>
         public int UpdateStock(cStockInfo stock)
         {
@@ -178,12 +178,12 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region É¾³ı--¿â´æÉÌÆ·ĞÅÏ¢
+        #region åˆ é™¤--åº“å­˜å•†å“ä¿¡æ¯
 
         /// <summary>
-        ///   É¾³ı¿â´æÉÌÆ·ĞÅÏ¢
+        ///   åˆ é™¤åº“å­˜å•†å“ä¿¡æ¯
         /// </summary>
-        /// <param name="stock"> ¿â´æÉÌÆ·Êı¾İ½á¹¹Àà¶ÔÏó </param>
+        /// <param name="stock"> åº“å­˜å•†å“æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
         /// <returns> </returns>
         public int DeleteStock(cStockInfo stock)
         {
@@ -196,13 +196,13 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ²éÑ¯--ÍùÀ´µ¥Î»ĞÅÏ¢
+        #region æŸ¥è¯¢--å¾€æ¥å•ä½ä¿¡æ¯
 
         /// <summary>
-        ///   ¸ù¾İ--ÉÌÆ·²úµØ--µÃµ½¿â´æÉÌÆ·ĞÅÏ¢
+        ///   æ ¹æ®--å•†å“äº§åœ°--å¾—åˆ°åº“å­˜å•†å“ä¿¡æ¯
         /// </summary>
-        /// <param name="stock"> ¿â´æÉÌÆ·Êı¾İ½á¹¹Àà¶ÔÏó </param>
-        /// <param name="tbName"> Ó³ÉäÔ­±íÃû³Æ </param>
+        /// <param name="stock"> åº“å­˜å•†å“æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
+        /// <param name="tbName"> æ˜ å°„åŸè¡¨åç§° </param>
         /// <returns> </returns>
         public DataSet FindStockByProduce(cStockInfo stock, string tbName)
         {
@@ -214,7 +214,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İ--ÉÌÆ·Ãû³Æ--µÃµ½¿â´æÉÌÆ·ĞÅÏ¢
+        ///   æ ¹æ®--å•†å“åç§°--å¾—åˆ°åº“å­˜å•†å“ä¿¡æ¯
         /// </summary>
         /// <param name="units"> </param>
         /// <param name="tbName"> </param>
@@ -229,7 +229,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µÃµ½ËùÓĞ--¿â´æÉÌÆ·ĞÅÏ¢
+        ///   å¾—åˆ°æ‰€æœ‰--åº“å­˜å•†å“ä¿¡æ¯
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -240,10 +240,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region Ìí¼Ó--¹«Ë¾Ö°Ô±ĞÅÏ¢
+        #region æ·»åŠ --å…¬å¸èŒå‘˜ä¿¡æ¯
 
         /// <summary>
-        ///   Ìí¼Ó--¹«Ë¾Ö°Ô±--ĞÅÏ¢
+        ///   æ·»åŠ --å…¬å¸èŒå‘˜--ä¿¡æ¯
         /// </summary>
         /// <param name="client"> </param>
         /// <returns> </returns>
@@ -266,10 +266,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ĞŞ¸Ä--¹«Ë¾Ö°Ô±ĞÅÏ¢
+        #region ä¿®æ”¹--å…¬å¸èŒå‘˜ä¿¡æ¯
 
         /// <summary>
-        ///   ĞŞ¸Ä--¹«Ë¾Ö°Ô±--ĞÅÏ¢
+        ///   ä¿®æ”¹--å…¬å¸èŒå‘˜--ä¿¡æ¯
         /// </summary>
         /// <param name="units"> </param>
         /// <returns> </returns>
@@ -292,10 +292,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region É¾³ı--¹«Ë¾Ö°Ô±ĞÅÏ¢
+        #region åˆ é™¤--å…¬å¸èŒå‘˜ä¿¡æ¯
 
         /// <summary>
-        ///   É¾³ı--¹«Ë¾Ö°Ô±--ĞÅÏ¢
+        ///   åˆ é™¤--å…¬å¸èŒå‘˜--ä¿¡æ¯
         /// </summary>
         /// <param name="client"> </param>
         /// <returns> </returns>
@@ -310,10 +310,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ²éÑ¯--¹«Ë¾Ö°Ô±ĞÅÏ¢
+        #region æŸ¥è¯¢--å…¬å¸èŒå‘˜ä¿¡æ¯
 
         /// <summary>
-        ///   ¸ù¾İ--Ö°Ô±ËùÔÚ²¿ÃÅ--µÃµ½¹«Ë¾Ö°Ô±ĞÅÏ¢
+        ///   æ ¹æ®--èŒå‘˜æ‰€åœ¨éƒ¨é—¨--å¾—åˆ°å…¬å¸èŒå‘˜ä¿¡æ¯
         /// </summary>
         /// <param name="units"> </param>
         /// <param name="tbName"> </param>
@@ -328,7 +328,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İ--Ö°Ô±ĞÕÃû--µÃµ½¹«Ë¾Ö°Ô±ĞÅÏ¢
+        ///   æ ¹æ®--èŒå‘˜å§“å--å¾—åˆ°å…¬å¸èŒå‘˜ä¿¡æ¯
         /// </summary>
         /// <param name="units"> </param>
         /// <param name="tbName"> </param>
@@ -343,7 +343,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µÃµ½ËùÓĞ--¹«Ë¾Ö°Ô±ĞÅÏ¢
+        ///   å¾—åˆ°æ‰€æœ‰--å…¬å¸èŒå‘˜ä¿¡æ¯
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -354,12 +354,12 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ÉÌÆ·½øÏú´æ---µ¥¾İ¹ıÕË
+        #region å•†å“è¿›é”€å­˜---å•æ®è¿‡è´¦
 
         /// <summary>
-        ///   µÃµ½ËùÓĞtbName±íÖĞĞÅÏ¢£­£­Ö÷ÒªÓÃÀ´£ºµÃµ½×î´óµÄµ¥¾İ±àºÅÈ»ºó×Ô¶¯±àºÅ
+        ///   å¾—åˆ°æ‰€æœ‰tbNameè¡¨ä¸­ä¿¡æ¯ï¼ï¼ä¸»è¦ç”¨æ¥ï¼šå¾—åˆ°æœ€å¤§çš„å•æ®ç¼–å·ç„¶åè‡ªåŠ¨ç¼–å·
         /// </summary>
-        /// <param name="tbName"> Êı¾İ±íÃû³Æ </param>
+        /// <param name="tbName"> æ•°æ®è¡¨åç§° </param>
         /// <returns> </returns>
         public DataSet GetAllBill(string tbName_trueName)
         {
@@ -367,10 +367,10 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ´¦Àí½ø»õµ¥ºÍÏúÊÛÍË»õµ¥-Êı¾İ---ÏòÖ÷±íÖĞÌí¼ÓÊı¾İ
+        ///   å¤„ç†è¿›è´§å•å’Œé”€å”®é€€è´§å•-æ•°æ®---å‘ä¸»è¡¨ä¸­æ·»åŠ æ•°æ®
         /// </summary>
-        /// <param name="billinfo"> ¹ıÕËµ¥¾İÊı¾İ½á¹¹Àà¶ÔÏó </param>
-        /// <param name="AddTableName_trueName"> Êı¾İ¿âÖĞÊı¾İ±íÃû³Æ </param>
+        /// <param name="billinfo"> è¿‡è´¦å•æ®æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
+        /// <param name="AddTableName_trueName"> æ•°æ®åº“ä¸­æ•°æ®è¡¨åç§° </param>
         /// <returns> </returns>
         public int AddTableMainWarehouse(cBillInfo billinfo, string AddTableName_trueName)
         {
@@ -392,10 +392,10 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ´¦Àí½ø»õÍË»õµ¥ºÍÏúÊÛµ¥-Êı¾İ---ÏòÖ÷±íÖĞÌí¼ÓÊı¾İ
+        ///   å¤„ç†è¿›è´§é€€è´§å•å’Œé”€å”®å•-æ•°æ®---å‘ä¸»è¡¨ä¸­æ·»åŠ æ•°æ®
         /// </summary>
-        /// <param name="billinfo"> ¹ıÕËµ¥¾İÊı¾İ½á¹¹Àà¶ÔÏó </param>
-        /// <param name="AddTableName_trueName"> Êı¾İ¿âÖĞÊı¾İ±íÃû³Æ </param>
+        /// <param name="billinfo"> è¿‡è´¦å•æ®æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
+        /// <param name="AddTableName_trueName"> æ•°æ®åº“ä¸­æ•°æ®è¡¨åç§° </param>
         /// <returns> </returns>
         public int AddTableMainSellhouse(cBillInfo billinfo, string AddTableName_trueName)
         {
@@ -418,10 +418,10 @@ namespace EMS.BaseClass
 
 
         /// <summary>
-        ///   ÏòÃ÷Ï¸±íÖĞÌí¼ÓÊı¾İ£­½ø»õµ¥£­ÏúÊÛÍË»õµ¥£­ÏúÊÛµ¥£­½ø»õÍË»õµ¥
+        ///   å‘æ˜ç»†è¡¨ä¸­æ·»åŠ æ•°æ®ï¼è¿›è´§å•ï¼é”€å”®é€€è´§å•ï¼é”€å”®å•ï¼è¿›è´§é€€è´§å•
         /// </summary>
-        /// <param name="billinfo"> ¹ıÕËµ¥¾İÊı¾İ½á¹¹Àà¶ÔÏó </param>
-        /// <param name="AddTableName_trueName"> Êı¾İ¿âÖĞÊı¾İ±íÃû³Æ </param>
+        /// <param name="billinfo"> è¿‡è´¦å•æ®æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
+        /// <param name="AddTableName_trueName"> æ•°æ®åº“ä¸­æ•°æ®è¡¨åç§° </param>
         /// <returns> </returns>
         public int AddTableDetailedWarehouse(cBillInfo billinfo, string AddTableName_trueName)
         {
@@ -444,9 +444,9 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ĞŞ¸Ä¿â´æÊıÁ¿ºÍ¼ÓÈ¨Æ½¾ù¼Û¸ñ
+        ///   ä¿®æ”¹åº“å­˜æ•°é‡å’ŒåŠ æƒå¹³å‡ä»·æ ¼
         /// </summary>
-        /// <param name="stock"> ¿â´æÉÌÆ·Êı¾İ½á¹¹Àà¶ÔÏó </param>
+        /// <param name="stock"> åº“å­˜å•†å“æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
         /// <returns> </returns>
         public int UpdateStock_QtyAndAveragerprice(cStockInfo stock)
         {
@@ -464,7 +464,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ĞŞ¸ÄÏúÊÛÉÌÆ·ºÍ½ø»õÍË»õÉÌÆ·--ºóµÄ¿â´æÉÌÆ·ÊıÁ¿
+        ///   ä¿®æ”¹é”€å”®å•†å“å’Œè¿›è´§é€€è´§å•†å“--åçš„åº“å­˜å•†å“æ•°é‡
         /// </summary>
         /// <param name="stock"> </param>
         /// <returns> </returns>
@@ -479,9 +479,9 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ĞŞ¸Ä¿â´æÊıÁ¿ºÍÏúÊÛ£¨ºÍ½ø»õÍË»õ£©×îºóÒ»´Î¼Û¸ñ
+        ///   ä¿®æ”¹åº“å­˜æ•°é‡å’Œé”€å”®ï¼ˆå’Œè¿›è´§é€€è´§ï¼‰æœ€åä¸€æ¬¡ä»·æ ¼
         /// </summary>
-        /// <param name="stock"> ¿â´æÉÌÆ·Êı¾İ½á¹¹Àà¶ÔÏó </param>
+        /// <param name="stock"> åº“å­˜å•†å“æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
         /// <returns> </returns>
         public int UpdateStock_Qty(cStockInfo stock)
         {
@@ -495,10 +495,10 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İÉÌÆ·±àºÅTradeCode,Ö÷ÒªµÃµ½ÊıÁ¿ºÍ¼ÓÈ¨Æ½¾ù¼Û¸ñ£¬ÓÃÓÚ¶ÔÆä¸üĞÂ¡£
+        ///   æ ¹æ®å•†å“ç¼–å·TradeCode,ä¸»è¦å¾—åˆ°æ•°é‡å’ŒåŠ æƒå¹³å‡ä»·æ ¼ï¼Œç”¨äºå¯¹å…¶æ›´æ–°ã€‚
         /// </summary>
-        /// <param name="stock"> ¿â´æÉÌÆ·Êı¾İ½á¹¹Àà¶ÔÏó </param>
-        /// <param name="tbName"> Ó³ÉäĞéÄâ±íÃû³Æ </param>
+        /// <param name="stock"> åº“å­˜å•†å“æ•°æ®ç»“æ„ç±»å¯¹è±¡ </param>
+        /// <param name="tbName"> æ˜ å°„è™šæ‹Ÿè¡¨åç§° </param>
         /// <returns> </returns>
         public DataSet GetStockByTradeCode(cStockInfo stock, string tbName)
         {
@@ -511,10 +511,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ÉÌÆ·½øÏú´æ---ÍùÀ´ÕËÃ÷Ï¸±í
+        #region å•†å“è¿›é”€å­˜---å¾€æ¥è´¦æ˜ç»†è¡¨
 
         /// <summary>
-        ///   Ìí¼ÓÊı¾İ---ÍùÀ´ÕË±¾Ã÷Ï¸±í
+        ///   æ·»åŠ æ•°æ®---å¾€æ¥è´¦æœ¬æ˜ç»†è¡¨
         /// </summary>
         /// <param name="currentAccount"> </param>
         /// <returns> </returns>
@@ -539,10 +539,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ½ø»õ¹ÜÀí--½ø»õ·ÖÎö
+        #region è¿›è´§ç®¡ç†--è¿›è´§åˆ†æ
 
         /// <summary>
-        ///   ÉÌÆ·½ø»õ·ÖÎö--²»º¬½ø»õÍË»õ
+        ///   å•†å“è¿›è´§åˆ†æ--ä¸å«è¿›è´§é€€è´§
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -555,7 +555,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉÌÆ·½ø»õ·ÖÎö£¨º¬ÍË»õ£©
+        ///   å•†å“è¿›è´§åˆ†æï¼ˆå«é€€è´§ï¼‰
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -569,10 +569,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region  ½ø»õ¹ÜÀí--½ø»õÍ³¼Æ
+        #region  è¿›è´§ç®¡ç†--è¿›è´§ç»Ÿè®¡
 
         /// <summary>
-        ///   ½ø»õÉÌÆ·£­£­ÏêÏ¸Í³¼Æ
+        ///   è¿›è´§å•†å“ï¼ï¼è¯¦ç»†ç»Ÿè®¡
         /// </summary>
         /// <param name="billinfo"> </param>
         /// <param name="tbName"> </param>
@@ -589,12 +589,12 @@ namespace EMS.BaseClass
                 };
             return
                 (data.RunProcReturn(
-                    "SELECT b.tradecode AS ÉÌÆ·±àºÅ, b.fullname AS ÉÌÆ·Ãû³Æ, SUM(b.qty) AS ½ø»õÊıÁ¿,SUM(b.tsum) AS ½ø»õ½ğ¶î FROM tb_warehouse_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_warehouse_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE @units AND a.handle LIKE @handle WHERE (a.billdate BETWEEN '" +
+                    "SELECT b.tradecode AS å•†å“ç¼–å·, b.fullname AS å•†å“åç§°, SUM(b.qty) AS è¿›è´§æ•°é‡,SUM(b.tsum) AS è¿›è´§é‡‘é¢ FROM tb_warehouse_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_warehouse_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE @units AND a.handle LIKE @handle WHERE (a.billdate BETWEEN '" +
                     starDateTime + "' AND '" + endDateTime + "') GROUP BY b.tradecode, b.fullname", prams, tbName));
         }
 
         /// <summary>
-        ///   ½ø»õÉÌÆ·£­£­Í³¼ÆËùÓĞ
+        ///   è¿›è´§å•†å“ï¼ï¼ç»Ÿè®¡æ‰€æœ‰
         /// </summary>
         /// <param name="billinfo"> </param>
         /// <param name="tbName"> </param>
@@ -605,16 +605,16 @@ namespace EMS.BaseClass
         {
             return
                 (data.RunProcReturn(
-                    "select tradecode as ÉÌÆ·±àºÅ,fullname as ÉÌÆ·Ãû³Æ,sum(qty) as ½ø»õÊıÁ¿,sum(tsum)as ½ø»õ½ğ¶î from tb_warehouse_detailed group by tradecode, fullname",
+                    "select tradecode as å•†å“ç¼–å·,fullname as å•†å“åç§°,sum(qty) as è¿›è´§æ•°é‡,sum(tsum)as è¿›è´§é‡‘é¢ from tb_warehouse_detailed group by tradecode, fullname",
                     tbName));
         }
 
         #endregion
 
-        #region  ÏúÊÛ¹ÜÀí--ÏúÊÛÍ³¼Æ
+        #region  é”€å”®ç®¡ç†--é”€å”®ç»Ÿè®¡
 
         /// <summary>
-        ///   ÏúÊÛÉÌÆ·£­£­ÏêÏ¸Í³¼Æ
+        ///   é”€å”®å•†å“ï¼ï¼è¯¦ç»†ç»Ÿè®¡
         /// </summary>
         /// <param name="billinfo"> </param>
         /// <param name="tbName"> </param>
@@ -631,12 +631,12 @@ namespace EMS.BaseClass
                 };
             return
                 (data.RunProcReturn(
-                    "SELECT b.tradecode AS ÉÌÆ·±àºÅ, b.fullname AS ÉÌÆ·Ãû³Æ, SUM(b.qty) AS ÏúÊÛÊıÁ¿,SUM(b.tsum) AS ÏúÊÛ½ğ¶î FROM tb_sell_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_sell_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE @units AND a.handle LIKE @units WHERE (a.billdate BETWEEN '" +
+                    "SELECT b.tradecode AS å•†å“ç¼–å·, b.fullname AS å•†å“åç§°, SUM(b.qty) AS é”€å”®æ•°é‡,SUM(b.tsum) AS é”€å”®é‡‘é¢ FROM tb_sell_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_sell_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE @units AND a.handle LIKE @units WHERE (a.billdate BETWEEN '" +
                     starDateTime + "' AND '" + endDateTime + "') GROUP BY b.tradecode, b.fullname", prams, tbName));
         }
 
         /// <summary>
-        ///   ÏúÊÛÉÌÆ·£­£­Í³¼ÆËùÓĞ
+        ///   é”€å”®å•†å“ï¼ï¼ç»Ÿè®¡æ‰€æœ‰
         /// </summary>
         /// <param name="billinfo"> </param>
         /// <param name="tbName"> </param>
@@ -647,16 +647,16 @@ namespace EMS.BaseClass
         {
             return
                 (data.RunProcReturn(
-                    "select tradecode as ÉÌÆ·±àºÅ,fullname as ÉÌÆ·Ãû³Æ,sum(qty) as ÏúÊÛÊıÁ¿,sum(tsum) as ÏúÊÛ½ğ¶î from tb_sell_detailed group by tradecode, fullname",
+                    "select tradecode as å•†å“ç¼–å·,fullname as å•†å“åç§°,sum(qty) as é”€å”®æ•°é‡,sum(tsum) as é”€å”®é‡‘é¢ from tb_sell_detailed group by tradecode, fullname",
                     tbName));
         }
 
         #endregion
 
-        #region ÏúÊÛ¹ÜÀí--ÔÂÏúÊÛ×´¿ö
+        #region é”€å”®ç®¡ç†--æœˆé”€å”®çŠ¶å†µ
 
         /// <summary>
-        ///   Í³¼ÆÉÌÆ·ÏúÊÛ×´¿ö
+        ///   ç»Ÿè®¡å•†å“é”€å”®çŠ¶å†µ
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -664,12 +664,12 @@ namespace EMS.BaseClass
         {
             return
                 (data.RunProcReturn(
-                    "select a.tradecode as ÉÌÆ·±àºÅ,a.fullname as ÉÌÆ·Ãû³Æ,a.qty as ÏúÊÛÊıÁ¿,a.price AS ÏúÊÛ¾ù¼Û,a.tsum as ÏúÊÛ½ğ¶î,b.qty2 as 'ÍË»õÊıÁ¿',b.tsum2 as 'ÍË»õ½ğ¶î' from (SELECT tradecode,fullname,avg(price)as price,sum(qty) AS qty, sum(tsum) as tsum from tb_sell_detailed group by tradecode,fullname) a left join (SELECT tradecode,fullname,sum(qty) AS qty2, sum(tsum) as tsum2 from tb_resell_detailed group by tradecode,fullname) b on a.tradecode=b.tradecode ",
+                    "select a.tradecode as å•†å“ç¼–å·,a.fullname as å•†å“åç§°,a.qty as é”€å”®æ•°é‡,a.price AS é”€å”®å‡ä»·,a.tsum as é”€å”®é‡‘é¢,b.qty2 as 'é€€è´§æ•°é‡',b.tsum2 as 'é€€è´§é‡‘é¢' from (SELECT tradecode,fullname,avg(price)as price,sum(qty) AS qty, sum(tsum) as tsum from tb_sell_detailed group by tradecode,fullname) a left join (SELECT tradecode,fullname,sum(qty) AS qty2, sum(tsum) as tsum2 from tb_resell_detailed group by tradecode,fullname) b on a.tradecode=b.tradecode ",
                     tbName));
         }
 
         /// <summary>
-        ///   Ã÷Ï¸ÕË±¾£­£­£­¡®ÉÌÆ·ÏúÊÛ¡¯ºÍ¡®ÉÌÆ·ÏúÊÛÍË»õ¡¯
+        ///   æ˜ç»†è´¦æœ¬ï¼ï¼ï¼â€˜å•†å“é”€å”®â€™å’Œâ€˜å•†å“é”€å”®é€€è´§â€™
         /// </summary>
         /// <param name="strTradeCode"> </param>
         /// <param name="starDateTime"> </param>
@@ -680,17 +680,17 @@ namespace EMS.BaseClass
         {
             return
                 (data.RunProcReturn(
-                    "SELECT billdate as ÏúÊÛÈÕÆÚ, billcode as µ¥¾İ±àºÅ, tradecode as ÉÌÆ·±àºÅ, fullname as ÉÌÆ·Ãû³Æ, price as ÏúÊÛ¼Û¸ñ, qty as ÏúÊÛÊıÁ¿, tsum as ÏúÊÛ½ğ¶î FROM " +
+                    "SELECT billdate as é”€å”®æ—¥æœŸ, billcode as å•æ®ç¼–å·, tradecode as å•†å“ç¼–å·, fullname as å•†å“åç§°, price as é”€å”®ä»·æ ¼, qty as é”€å”®æ•°é‡, tsum as é”€å”®é‡‘é¢ FROM " +
                     tbName + " where tradecode = '" + strTradeCode + "' AND billdate BETWEEN '" + starDateTime +
                     "' AND '" + endDateTime + "'", tbName));
         }
 
         #endregion
 
-        #region ÏúÊÛ¹ÜÀí--ÉÌÆ·ÏúÊÛÅÅĞĞ
+        #region é”€å”®ç®¡ç†--å•†å“é”€å”®æ’è¡Œ
 
         /// <summary>
-        ///   ÉèÖÃÅÅĞĞ°ñÌõ¼ş£­£­ÍùÀ´µ¥Î»-ÏÂÀ­ÁĞ±í
+        ///   è®¾ç½®æ’è¡Œæ¦œæ¡ä»¶ï¼ï¼å¾€æ¥å•ä½-ä¸‹æ‹‰åˆ—è¡¨
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -700,7 +700,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉèÖÃÅÅĞĞ°ñÌõ¼ş£­£­¾­ÊÖÈË-ÏÂÀ­ÁĞ±í
+        ///   è®¾ç½®æ’è¡Œæ¦œæ¡ä»¶ï¼ï¼ç»æ‰‹äºº-ä¸‹æ‹‰åˆ—è¡¨
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -710,7 +710,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   °´ÏúÊÛ½ğ¶îÅÅĞĞ
+        ///   æŒ‰é”€å”®é‡‘é¢æ’è¡Œ
         /// </summary>
         /// <param name="handle"> </param>
         /// <param name="units"> </param>
@@ -722,14 +722,14 @@ namespace EMS.BaseClass
         {
             return
                 (data.RunProcReturn(
-                    "SELECT * FROM (SELECT b.tradecode AS ÉÌÆ·±àºÅ, b.fullname AS ÉÌÆ·Ãû³Æ, SUM(b.qty) AS ÏúÊÛÊıÁ¿, SUM(b.tsum) AS ÏúÊÛ½ğ¶î FROM tb_sell_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_sell_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE '%" +
+                    "SELECT * FROM (SELECT b.tradecode AS å•†å“ç¼–å·, b.fullname AS å•†å“åç§°, SUM(b.qty) AS é”€å”®æ•°é‡, SUM(b.tsum) AS é”€å”®é‡‘é¢ FROM tb_sell_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_sell_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE '%" +
                     units + "%' AND a.handle LIKE '%" + handle + "%' WHERE (a.billdate BETWEEN '" + StarDateTime +
-                    "' AND '" + EndDateTime + "')GROUP BY b.tradecode, b.fullname) DERIVEDTBL ORDER BY ÏúÊÛ½ğ¶î DESC",
+                    "' AND '" + EndDateTime + "')GROUP BY b.tradecode, b.fullname) DERIVEDTBL ORDER BY é”€å”®é‡‘é¢ DESC",
                     tbName));
         }
 
         /// <summary>
-        ///   °´ÏúÊÛÊıÁ¿ÅÅĞĞ
+        ///   æŒ‰é”€å”®æ•°é‡æ’è¡Œ
         /// </summary>
         /// <param name="handle"> </param>
         /// <param name="units"> </param>
@@ -741,18 +741,18 @@ namespace EMS.BaseClass
         {
             return
                 (data.RunProcReturn(
-                    "SELECT * FROM (SELECT b.tradecode AS ÉÌÆ·±àºÅ, b.fullname AS ÉÌÆ·Ãû³Æ, SUM(b.qty) AS ÏúÊÛÊıÁ¿, SUM(b.tsum) AS ÏúÊÛ½ğ¶î FROM tb_sell_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_sell_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE '%" +
+                    "SELECT * FROM (SELECT b.tradecode AS å•†å“ç¼–å·, b.fullname AS å•†å“åç§°, SUM(b.qty) AS é”€å”®æ•°é‡, SUM(b.tsum) AS é”€å”®é‡‘é¢ FROM tb_sell_main a INNER JOIN (SELECT billcode, tradecode, fullname, SUM(qty) AS qty, SUM(tsum) AS tsum FROM tb_sell_detailed GROUP BY tradecode, billcode, fullname) b ON a.billcode = b.billcode AND a.units LIKE '%" +
                     units + "%' AND a.handle LIKE '%" + handle + "%' WHERE (a.billdate BETWEEN '" + StarDateTime +
-                    "' AND '" + EndDateTime + "')GROUP BY b.tradecode, b.fullname) DERIVEDTBL ORDER BY ÏúÊÛÊıÁ¿ DESC",
+                    "' AND '" + EndDateTime + "')GROUP BY b.tradecode, b.fullname) DERIVEDTBL ORDER BY é”€å”®æ•°é‡ DESC",
                     tbName));
         }
 
         #endregion
 
-        #region ÏúÊÛ¹ÜÀí--ÉÌÆ·ÏúÊÛ³É±¾Ã÷Ï¸
+        #region é”€å”®ç®¡ç†--å•†å“é”€å”®æˆæœ¬æ˜ç»†
 
         /// <summary>
-        ///   ¸ù¾İµ¥¾İ±àºÅ--µÃµ½ÏúÊÛÃ÷Ï¸±íÖĞÊı¾İ
+        ///   æ ¹æ®å•æ®ç¼–å·--å¾—åˆ°é”€å”®æ˜ç»†è¡¨ä¸­æ•°æ®
         /// </summary>
         /// <param name="stock"> </param>
         /// <param name="tbName"> </param>
@@ -766,7 +766,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İµ¥¾İ±àºÅ--µÃµ½ÏúÊÛÃ÷Ï¸±íÖĞÊı¾İ
+        ///   æ ¹æ®å•æ®ç¼–å·--å¾—åˆ°é”€å”®æ˜ç»†è¡¨ä¸­æ•°æ®
         /// </summary>
         /// <param name="stock"> </param>
         /// <param name="tbName"> </param>
@@ -777,7 +777,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İÈÕÆÚ£­£­²éÑ¯ÏúÊÛÖ÷±íÖĞÊı¾İ
+        ///   æ ¹æ®æ—¥æœŸï¼ï¼æŸ¥è¯¢é”€å”®ä¸»è¡¨ä¸­æ•°æ®
         /// </summary>
         /// <param name="starDataTime"> </param>
         /// <param name="endDataTime"> </param>
@@ -792,10 +792,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ¿â´æ¹ÜÀí--¿â´æ×´¿ö
+        #region åº“å­˜ç®¡ç†--åº“å­˜çŠ¶å†µ
 
         /// <summary>
-        ///   ¼ìË÷¿â´æÉÌÆ·--²¢°´ÊıÁ¿ÅÅĞò
+        ///   æ£€ç´¢åº“å­˜å•†å“--å¹¶æŒ‰æ•°é‡æ’åº
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -805,7 +805,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İÉÌÆ·±àºÅ£¬»ñµÃ¿â´æÉÌÆ·ÖĞËùÓĞĞÅÏ¢
+        ///   æ ¹æ®å•†å“ç¼–å·ï¼Œè·å¾—åº“å­˜å•†å“ä¸­æ‰€æœ‰ä¿¡æ¯
         /// </summary>
         /// <param name="tradeCode"> </param>
         /// <param name="tbName"> </param>
@@ -816,7 +816,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¿â´æÉÌÆ·ÉÏÏÂÏŞÉèÖÃ
+        ///   åº“å­˜å•†å“ä¸Šä¸‹é™è®¾ç½®
         /// </summary>
         /// <param name="stock"> </param>
         /// <returns> </returns>
@@ -836,35 +836,35 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ¿â´æÉÌÆ·ÉÏÏÂÏŞ±¨¾¯
+        #region åº“å­˜å•†å“ä¸Šä¸‹é™æŠ¥è­¦
 
         /// <summary>
-        ///   ¿â´æÉÌÆ·ÏÂÏŞ±¨¾¯
+        ///   åº“å­˜å•†å“ä¸‹é™æŠ¥è­¦
         /// </summary>
         /// <returns> </returns>
         public DataSet GetLowerLimit()
         {
             return
                 (data.RunProcReturn(
-                    "SELECT tradecode as ÉÌÆ·±àºÅ, fullname as ÉÌÆ·Ãû³Æ, qty as ¿â´æÊıÁ¿,upperlimit as ¿â´æÉÏÏŞ,lowerlimit as ¿â´æÏÂÏŞ from tb_stock WHERE (qty < lowerlimit) and lowerlimit > 0",
+                    "SELECT tradecode as å•†å“ç¼–å·, fullname as å•†å“åç§°, qty as åº“å­˜æ•°é‡,upperlimit as åº“å­˜ä¸Šé™,lowerlimit as åº“å­˜ä¸‹é™ from tb_stock WHERE (qty < lowerlimit) and lowerlimit > 0",
                     "tb_stock"));
         }
 
         /// <summary>
-        ///   ¿â´æÉÌÆ·ÉÏÏŞ±¨¾¯
+        ///   åº“å­˜å•†å“ä¸Šé™æŠ¥è­¦
         /// </summary>
         /// <returns> </returns>
         public DataSet GetUpperLimit()
         {
             return
                 (data.RunProcReturn(
-                    "SELECT tradecode as ÉÌÆ·±àºÅ, fullname as ÉÌÆ·Ãû³Æ, qty as ¿â´æÊıÁ¿,upperlimit as ¿â´æÉÏÏŞ,lowerlimit as ¿â´æÏÂÏŞ FROM tb_stock WHERE (upperlimit < qty) and upperlimit>0",
+                    "SELECT tradecode as å•†å“ç¼–å·, fullname as å•†å“åç§°, qty as åº“å­˜æ•°é‡,upperlimit as åº“å­˜ä¸Šé™,lowerlimit as åº“å­˜ä¸‹é™ FROM tb_stock WHERE (upperlimit < qty) and upperlimit>0",
                     "tb_stock"));
         }
 
         #endregion
 
-        #region ¿â´æÅÌµã
+        #region åº“å­˜ç›˜ç‚¹
 
         public int CheckStock(cStockInfo stock)
         {
@@ -878,10 +878,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ±¾µ¥Î»ĞÅÏ¢ÉèÖÃ--ÏµÍ³ÉèÖÃ
+        #region æœ¬å•ä½ä¿¡æ¯è®¾ç½®--ç³»ç»Ÿè®¾ç½®
 
         /// <summary>
-        ///   ±¾µ¥Î»ĞÅÏ¢ÉèÖÃ
+        ///   æœ¬å•ä½ä¿¡æ¯è®¾ç½®
         /// </summary>
         /// <param name="units"> </param>
         /// <returns> </returns>
@@ -920,7 +920,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µÃµ½±¾µ¥Î»ĞÅÏ¢ÉèÖÃ
+        ///   å¾—åˆ°æœ¬å•ä½ä¿¡æ¯è®¾ç½®
         /// </summary>
         /// <param name="tbName"> </param>
         /// <returns> </returns>
@@ -931,10 +931,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region  Êı¾İ¿â±¸·İÓë»Ö¸´--ÏµÍ³ÉèÖÃ
+        #region  æ•°æ®åº“å¤‡ä»½ä¸æ¢å¤--ç³»ç»Ÿè®¾ç½®
 
         /// <summary>
-        ///   ±¸·İÊı¾İ¿â
+        ///   å¤‡ä»½æ•°æ®åº“
         /// </summary>
         /// <param name="bakUpName"> </param>
         public void BackUp(string bakUpName)
@@ -943,7 +943,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   »Ö¸´Êı¾İ¿â
+        ///   æ¢å¤æ•°æ®åº“
         /// </summary>
         /// <param name="reStoreName"> </param>
         public void ReStore(string reStoreName)
@@ -954,10 +954,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region  ÏµÍ³Êı¾İÇåÀí--ÏµÍ³ÉèÖÃ
+        #region  ç³»ç»Ÿæ•°æ®æ¸…ç†--ç³»ç»Ÿè®¾ç½®
 
         /// <summary>
-        ///   ¸ù¾İÖ¸¶¨µÄÊı¾İ±íÇå³ıÊı¾İ±íÖĞÊı¾İ
+        ///   æ ¹æ®æŒ‡å®šçš„æ•°æ®è¡¨æ¸…é™¤æ•°æ®è¡¨ä¸­æ•°æ®
         /// </summary>
         /// <param name="tbName_true"> </param>
         public void ClearTable(string tbName_true)
@@ -967,10 +967,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ÏµÍ³²Ù×÷Ô±¼°È¨ÏŞÉèÖÃ--ÏµÍ³ÉèÖÃ
+        #region ç³»ç»Ÿæ“ä½œå‘˜åŠæƒé™è®¾ç½®--ç³»ç»Ÿè®¾ç½®
 
         /// <summary>
-        ///   Ìí¼ÓÏµÍ³²Ù×÷Ô±
+        ///   æ·»åŠ ç³»ç»Ÿæ“ä½œå‘˜
         /// </summary>
         /// <param name="userName"> </param>
         /// <param name="pwd"> </param>
@@ -980,7 +980,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   É¾³ıÏµÍ³²Ù×÷Ô±
+        ///   åˆ é™¤ç³»ç»Ÿæ“ä½œå‘˜
         /// </summary>
         /// <param name="ID"> </param>
         public void DeleteSysUser(int ID)
@@ -989,7 +989,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   »ñµÃËùÓĞÏµÍ³ÓÃ»§ĞÅÏ¢
+        ///   è·å¾—æ‰€æœ‰ç³»ç»Ÿç”¨æˆ·ä¿¡æ¯
         /// </summary>
         /// <returns> </returns>
         public DataSet GetAllUser()
@@ -998,7 +998,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¸ù¾İÓÃ»§Ãû³Æ---²éÑ¯ÏµÍ³ÓÃ»§
+        ///   æ ¹æ®ç”¨æˆ·åç§°---æŸ¥è¯¢ç³»ç»Ÿç”¨æˆ·
         /// </summary>
         /// <param name="userName"> </param>
         /// <returns> </returns>
@@ -1017,7 +1017,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ĞŞ¸ÄÏµÍ³ÓÃ»§ĞÅÏ¢¼°Ëù¶ÔÓ¦µÄÈ¨ÏŞ
+        ///   ä¿®æ”¹ç³»ç»Ÿç”¨æˆ·ä¿¡æ¯åŠæ‰€å¯¹åº”çš„æƒé™
         /// </summary>
         /// <param name="popedom"> </param>
         public void UpdateSysUser(cPopedom popedom)
@@ -1041,22 +1041,22 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ÍùÀ´µ¥Î»¶ÔÕË
+        #region å¾€æ¥å•ä½å¯¹è´¦
 
         /// <summary>
-        ///   ÍùÀ´µ¥Î»ÁĞ±í--²¢Í³¼ÆÓ¦ÊÕ¶î-Ôö¼Ó¼°¼õÉÙ
+        ///   å¾€æ¥å•ä½åˆ—è¡¨--å¹¶ç»Ÿè®¡åº”æ”¶é¢-å¢åŠ åŠå‡å°‘
         /// </summary>
         /// <returns> </returns>
         public DataSet GetUnitsList()
         {
             return
                 (data.RunProcReturn(
-                    "SELECT units as ÍùÀ´µ¥Î», SUM(addgathering) AS Ó¦ÊÕÔö¼Ó, SUM(reducegathering) AS Ó¦ÊÕ¼õÉÙ FROM tb_currentaccount GROUP BY units",
+                    "SELECT units as å¾€æ¥å•ä½, SUM(addgathering) AS åº”æ”¶å¢åŠ , SUM(reducegathering) AS åº”æ”¶å‡å°‘ FROM tb_currentaccount GROUP BY units",
                     "tb_currentaccount"));
         }
 
         ///<summary>
-        ///  ²éÑ¯ÔÚÖ¸¶¨µÄÈÕÆÚ¶ÎÖĞ--ÊÇ·ñ´æÔÚ£­£­²éÑ¯½á¹û
+        ///  æŸ¥è¯¢åœ¨æŒ‡å®šçš„æ—¥æœŸæ®µä¸­--æ˜¯å¦å­˜åœ¨ï¼ï¼æŸ¥è¯¢ç»“æœ
         ///</summary>
         ///<param name="units"> </param>
         ///<param name="starDateTime"> </param>
@@ -1071,7 +1071,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÍùÀ´¶ÔÕË£­£­¸ù¾İµ¥¾İ±àºÅ--²éÑ¯Ã÷Ï¸±íÖĞÊı¾İ
+        ///   å¾€æ¥å¯¹è´¦ï¼ï¼æ ¹æ®å•æ®ç¼–å·--æŸ¥è¯¢æ˜ç»†è¡¨ä¸­æ•°æ®
         /// </summary>
         /// <param name="billcode"> </param>
         /// <param name="tb_Detailed_true"> </param>
@@ -1085,7 +1085,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÍùÀ´¶ÔÕË£­£­¸ù¾İµ¥¾İ±àºÅ--²éÑ¯Ö÷±íÖĞÊı¾İ
+        ///   å¾€æ¥å¯¹è´¦ï¼ï¼æ ¹æ®å•æ®ç¼–å·--æŸ¥è¯¢ä¸»è¡¨ä¸­æ•°æ®
         /// </summary>
         /// <param name="tb_Main_true"> </param>
         /// <param name="billcode"> </param>
@@ -1097,7 +1097,7 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ¸¨Öú¹¤¾ß¹ÜÀí
+        #region è¾…åŠ©å·¥å…·ç®¡ç†
 
         //ShellExecute Me.hWnd, "open", "http://www.mingrisoft.com", 1, 1, 5
         public void OpenInernet()
@@ -1106,10 +1106,10 @@ namespace EMS.BaseClass
 
         #endregion
 
-        #region ÏµÍ³µÇÂ¼
+        #region ç³»ç»Ÿç™»å½•
 
         /// <summary>
-        ///   ÏµÍ³µÇÂ¼
+        ///   ç³»ç»Ÿç™»å½•
         /// </summary>
         /// <param name="popedom"> </param>
         /// <returns> </returns>
@@ -1128,7 +1128,7 @@ namespace EMS.BaseClass
         #endregion
     }
 
-    #region ¶¨ÒåÍùÀ´µ¥Î»--Êı¾İ½á¹¹
+    #region å®šä¹‰å¾€æ¥å•ä½--æ•°æ®ç»“æ„
 
     public class cUnitsInfo
     {
@@ -1143,7 +1143,7 @@ namespace EMS.BaseClass
         private string unitcode = "";
 
         /// <summary>
-        ///   µ¥Î»±àºÅ
+        ///   å•ä½ç¼–å·
         /// </summary>
         public string UnitCode
         {
@@ -1152,7 +1152,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥Î»È«³Æ
+        ///   å•ä½å…¨ç§°
         /// </summary>
         public string FullName
         {
@@ -1161,7 +1161,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥Î»Ë°ºÅ
+        ///   å•ä½ç¨å·
         /// </summary>
         public string Tax
         {
@@ -1170,7 +1170,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÁªÏµÈË
+        ///   è”ç³»äºº
         /// </summary>
         public string LinkMan
         {
@@ -1179,7 +1179,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÁªÏµµç»°
+        ///   è”ç³»ç”µè¯
         /// </summary>
         public string Tel
         {
@@ -1188,7 +1188,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥Î»µØÖ·
+        ///   å•ä½åœ°å€
         /// </summary>
         public string Address
         {
@@ -1197,7 +1197,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¿ª»§ĞĞ¼°ÕËºÅ
+        ///   å¼€æˆ·è¡ŒåŠè´¦å·
         /// </summary>
         public string Accounts
         {
@@ -1206,7 +1206,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÀÛ¼ÆÓ¦ÊÕ¿î
+        ///   ç´¯è®¡åº”æ”¶æ¬¾
         /// </summary>
         public float Gathering
         {
@@ -1215,7 +1215,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÀÛ¼ÆÓ¦¸¶¿î
+        ///   ç´¯è®¡åº”ä»˜æ¬¾
         /// </summary>
         public float Payment
         {
@@ -1226,7 +1226,7 @@ namespace EMS.BaseClass
 
     #endregion
 
-    #region ¶¨Òå¿â´æÉÌÆ·--Êı¾İ½á¹¹
+    #region å®šä¹‰åº“å­˜å•†å“--æ•°æ®ç»“æ„
 
     public class cStockInfo
     {
@@ -1245,7 +1245,7 @@ namespace EMS.BaseClass
         private float upperlimit;
 
         /// <summary>
-        ///   ÉÌÆ·±àºÅ
+        ///   å•†å“ç¼–å·
         /// </summary>
         public string TradeCode
         {
@@ -1254,7 +1254,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥Î»È«³Æ
+        ///   å•ä½å…¨ç§°
         /// </summary>
         public string FullName
         {
@@ -1263,7 +1263,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉÌÆ·ĞÍºÅ
+        ///   å•†å“å‹å·
         /// </summary>
         public string TradeType
         {
@@ -1272,7 +1272,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉÌÆ·¹æ¸ñ
+        ///   å•†å“è§„æ ¼
         /// </summary>
         public string Standard
         {
@@ -1281,7 +1281,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉÌÆ·µ¥Î»
+        ///   å•†å“å•ä½
         /// </summary>
         public string Unit
         {
@@ -1290,7 +1290,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉÌÆ·²úµØ
+        ///   å•†å“äº§åœ°
         /// </summary>
         public string Produce
         {
@@ -1299,7 +1299,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¿â´æÊıÁ¿
+        ///   åº“å­˜æ•°é‡
         /// </summary>
         public float Qty
         {
@@ -1308,7 +1308,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ½ø»õÊ±×îºóÒ»´Î¼Û¸ñ
+        ///   è¿›è´§æ—¶æœ€åä¸€æ¬¡ä»·æ ¼
         /// </summary>
         public float Price
         {
@@ -1317,7 +1317,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¼ÓÈ¨Æ½¾ù¼Û¸ñ
+        ///   åŠ æƒå¹³å‡ä»·æ ¼
         /// </summary>
         public float AveragePrice
         {
@@ -1326,7 +1326,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÏúÊÛÊ±µÄ×îºóÒ»´ÎÏú¼Û
+        ///   é”€å”®æ—¶çš„æœ€åä¸€æ¬¡é”€ä»·
         /// </summary>
         public float SalePrice
         {
@@ -1335,7 +1335,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÅÌµãÊıÁ¿
+        ///   ç›˜ç‚¹æ•°é‡
         /// </summary>
         public float Check
         {
@@ -1344,7 +1344,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¿â´æ±¨¾¯ÉÏÏŞ
+        ///   åº“å­˜æŠ¥è­¦ä¸Šé™
         /// </summary>
         public float UpperLimit
         {
@@ -1353,7 +1353,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¿â´æ±¨¾¯ÏÂÏŞ
+        ///   åº“å­˜æŠ¥è­¦ä¸‹é™
         /// </summary>
         public float LowerLimit
         {
@@ -1364,7 +1364,7 @@ namespace EMS.BaseClass
 
     #endregion
 
-    #region ¶¨Òå¹«Ë¾Ö°Ô±--Êı¾İ½á¹¹
+    #region å®šä¹‰å…¬å¸èŒå‘˜--æ•°æ®ç»“æ„
 
     public class cEmployeeInfo
     {
@@ -1376,7 +1376,7 @@ namespace EMS.BaseClass
         private string tel = "";
 
         /// <summary>
-        ///   Ö°Ô±±àºÅ
+        ///   èŒå‘˜ç¼–å·
         /// </summary>
         public string EmployeeCode
         {
@@ -1385,7 +1385,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ö°Ô±ĞÕÃû
+        ///   èŒå‘˜å§“å
         /// </summary>
         public string FullName
         {
@@ -1394,7 +1394,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ö°Ô±ĞÔ±ğ
+        ///   èŒå‘˜æ€§åˆ«
         /// </summary>
         public string Sex
         {
@@ -1403,7 +1403,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ËùÔÚ²¿ÃÅ
+        ///   æ‰€åœ¨éƒ¨é—¨
         /// </summary>
         public string Dept
         {
@@ -1412,7 +1412,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ö°Ô±µç»°
+        ///   èŒå‘˜ç”µè¯
         /// </summary>
         public string Tel
         {
@@ -1421,7 +1421,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ±¸×¢ĞÅÏ¢
+        ///   å¤‡æ³¨ä¿¡æ¯
         /// </summary>
         public string Memo
         {
@@ -1432,11 +1432,11 @@ namespace EMS.BaseClass
 
     #endregion
 
-    #region ¶¨Òå¹ıÕËµ¥¾İ--Êı¾İ½á¹¹
+    #region å®šä¹‰è¿‡è´¦å•æ®--æ•°æ®ç»“æ„
 
     public class cBillInfo
     {
-        //Ö÷±í½á¹¹
+        //ä¸»è¡¨ç»“æ„
         private string billcode = "";
         private DateTime billdate = DateTime.Now;
         private string fullname = "";
@@ -1447,14 +1447,14 @@ namespace EMS.BaseClass
         private float qty;
         private string summary = "";
 
-        //Ã÷Ï¸±í½á¹¹
+        //æ˜ç»†è¡¨ç»“æ„
         private string tradecode = "";
         private string tradeunit = "";
         private float tsum;
         private string units = "";
 
         /// <summary>
-        ///   Â¼µ¥ÈÕÆÚ
+        ///   å½•å•æ—¥æœŸ
         /// </summary>
         public DateTime BillDate
         {
@@ -1463,7 +1463,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥¾İ±àºÅ
+        ///   å•æ®ç¼–å·
         /// </summary>
         public string BillCode
         {
@@ -1472,7 +1472,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¹©»õµ¥Î»
+        ///   ä¾›è´§å•ä½
         /// </summary>
         public string Units
         {
@@ -1481,7 +1481,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¾­ÊÖÈË
+        ///   ç»æ‰‹äºº
         /// </summary>
         public string Handle
         {
@@ -1490,7 +1490,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÕªÒª
+        ///   æ‘˜è¦
         /// </summary>
         public string Summary
         {
@@ -1499,7 +1499,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ó¦¸¶½ğ¶î
+        ///   åº”ä»˜é‡‘é¢
         /// </summary>
         public float FullPayment
         {
@@ -1508,7 +1508,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Êµ¸¶½ğ¶î
+        ///   å®ä»˜é‡‘é¢
         /// </summary>
         public float Payment
         {
@@ -1516,9 +1516,9 @@ namespace EMS.BaseClass
             set { payment = value; }
         }
 
-        //***************Ã÷Ï¸±í½á¹¹******************//
+        //***************æ˜ç»†è¡¨ç»“æ„******************//
         /// <summary>
-        ///   ÉÌÆ·±àºÅ
+        ///   å•†å“ç¼–å·
         /// </summary>
         public string TradeCode
         {
@@ -1527,7 +1527,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉÌÆ·Ãû³Æ
+        ///   å•†å“åç§°
         /// </summary>
         public string FullName
         {
@@ -1536,7 +1536,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÉÌÆ·µ¥Î»
+        ///   å•†å“å•ä½
         /// </summary>
         public string TradeUnit
         {
@@ -1545,7 +1545,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÊıÁ¿
+        ///   æ•°é‡
         /// </summary>
         public float Qty
         {
@@ -1554,7 +1554,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¼Û¸ñ
+        ///   ä»·æ ¼
         /// </summary>
         public float Price
         {
@@ -1563,7 +1563,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ½ğ¶î=ÊıÁ¿*¼Û¸ñ
+        ///   é‡‘é¢=æ•°é‡*ä»·æ ¼
         /// </summary>
         public float TSum
         {
@@ -1574,21 +1574,21 @@ namespace EMS.BaseClass
 
     #endregion
 
-    #region ¶¨ÒåÍùÀ´ÕË±¾Ã÷Ï¸--Êı¾İ½á¹¹
+    #region å®šä¹‰å¾€æ¥è´¦æœ¬æ˜ç»†--æ•°æ®ç»“æ„
 
     public class cCurrentAccount
     {
-        private float addgathering; //Ó¦ÊÕÔö¼Ó
-        private float balance; //Ó¦ÊÕÓëÔö¼Ó ²î¶î
+        private float addgathering; //åº”æ”¶å¢åŠ 
+        private float balance; //åº”æ”¶ä¸å¢åŠ  å·®é¢
         private string billcode = "";
         private DateTime billdate = DateTime.Now;
-        private float factaddfee; //Êµ¼ÊÔö¼Ó
-        private float factreducegathering; //Êµ¼Ê¼õÉÙ
-        private float reducegathering; //Ó¦ÊÕ¼õÉÙ
+        private float factaddfee; //å®é™…å¢åŠ 
+        private float factreducegathering; //å®é™…å‡å°‘
+        private float reducegathering; //åº”æ”¶å‡å°‘
         private string units = "";
 
         /// <summary>
-        ///   Â¼µ¥ÈÕÆÚ
+        ///   å½•å•æ—¥æœŸ
         /// </summary>
         public DateTime BillDate
         {
@@ -1597,7 +1597,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥¾İ±àºÅ
+        ///   å•æ®ç¼–å·
         /// </summary>
         public string BillCode
         {
@@ -1606,7 +1606,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ó¦ÊÕÔö¼Ó
+        ///   åº”æ”¶å¢åŠ 
         /// </summary>
         public float AddGathering
         {
@@ -1615,7 +1615,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Êµ¼ÊÔö¼Ó
+        ///   å®é™…å¢åŠ 
         /// </summary>
         public float FactAddFee
         {
@@ -1624,7 +1624,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ó¦ÊÕ¼õÉÙ
+        ///   åº”æ”¶å‡å°‘
         /// </summary>
         public float ReduceGathering
         {
@@ -1633,7 +1633,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Êµ¼Ê¼õÉÙ
+        ///   å®é™…å‡å°‘
         /// </summary>
         public float FactReduceGathering
         {
@@ -1642,7 +1642,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Óà¶î(Ó¦ÊÕ½ğ¶î-Êµ¼Ê½ğ¶î)
+        ///   ä½™é¢(åº”æ”¶é‡‘é¢-å®é™…é‡‘é¢)
         /// </summary>
         public float Balance
         {
@@ -1651,7 +1651,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÍùÀ´µ¥Î»
+        ///   å¾€æ¥å•ä½
         /// </summary>
         public string Units
         {
@@ -1662,7 +1662,7 @@ namespace EMS.BaseClass
 
     #endregion
 
-    #region ¶¨Òå±¾µ¥Î»ĞÅÏ¢ÉèÖÃ--Êı¾İ½á¹¹
+    #region å®šä¹‰æœ¬å•ä½ä¿¡æ¯è®¾ç½®--æ•°æ®ç»“æ„
 
     public class cUnits
     {
@@ -1674,7 +1674,7 @@ namespace EMS.BaseClass
         private string tel = "";
 
         /// <summary>
-        ///   µ¥Î»È«³Æ
+        ///   å•ä½å…¨ç§°
         /// </summary>
         public string FullName
         {
@@ -1683,7 +1683,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ë°ºÅ
+        ///   ç¨å·
         /// </summary>
         public string Tax
         {
@@ -1692,7 +1692,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥Î»µç»°
+        ///   å•ä½ç”µè¯
         /// </summary>
         public string Tel
         {
@@ -1701,7 +1701,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÁªÏµÈË
+        ///   è”ç³»äºº
         /// </summary>
         public string Linkman
         {
@@ -1710,7 +1710,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÁªÏµµØÖ·
+        ///   è”ç³»åœ°å€
         /// </summary>
         public string Address
         {
@@ -1719,7 +1719,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¿ª»§ĞĞ¼°ÕËºÅ
+        ///   å¼€æˆ·è¡ŒåŠè´¦å·
         /// </summary>
         public string Accounts
         {
@@ -1730,7 +1730,7 @@ namespace EMS.BaseClass
 
     #endregion
 
-    #region ¶¨ÒåÍùÀ´ÕËÃ÷Ï¸±í£­£­£­Êı¾İ½á¹¹
+    #region å®šä¹‰å¾€æ¥è´¦æ˜ç»†è¡¨ï¼ï¼ï¼æ•°æ®ç»“æ„
 
     public class cCurrentaccount
     {
@@ -1744,7 +1744,7 @@ namespace EMS.BaseClass
         private string units = "";
 
         /// <summary>
-        ///   Â¼µ¥ÈÕÆÚ
+        ///   å½•å•æ—¥æœŸ
         /// </summary>
         public DateTime BillDate
         {
@@ -1753,7 +1753,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   µ¥¾İ±àºÅ
+        ///   å•æ®ç¼–å·
         /// </summary>
         public string BillCode
         {
@@ -1762,7 +1762,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ó¦ÊÕÔö¼Ó
+        ///   åº”æ”¶å¢åŠ 
         /// </summary>
         public float AddGathering
         {
@@ -1771,7 +1771,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Êµ¼ÊÔö¼Ó
+        ///   å®é™…å¢åŠ 
         /// </summary>
         public float FactAddfee
         {
@@ -1780,7 +1780,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ó¦ÊÕ¼õÉÙ
+        ///   åº”æ”¶å‡å°‘
         /// </summary>
         public float ReduceGathering
         {
@@ -1789,7 +1789,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Êµ¼Ê¼õÉÙ
+        ///   å®é™…å‡å°‘
         /// </summary>
         public float FactFee
         {
@@ -1798,7 +1798,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   Ó¦ÊÕÓà¶î
+        ///   åº”æ”¶ä½™é¢
         /// </summary>
         public float Balance
         {
@@ -1807,7 +1807,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÍùÀ´µ¥Î»
+        ///   å¾€æ¥å•ä½
         /// </summary>
         public string Units
         {
@@ -1818,7 +1818,7 @@ namespace EMS.BaseClass
 
     #endregion
 
-    #region ¶¨ÒåÈ¨ÏŞ£­£­Êı¾İ½á¹¹
+    #region å®šä¹‰æƒé™ï¼ï¼æ•°æ®ç»“æ„
 
     public class cPopedom
     {
@@ -1841,7 +1841,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÓÃ»§Ãû³Æ
+        ///   ç”¨æˆ·åç§°
         /// </summary>
         public string SysUser
         {
@@ -1850,7 +1850,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÓÃ»§ÃÜÂë
+        ///   ç”¨æˆ·å¯†ç 
         /// </summary>
         public string Password
         {
@@ -1859,7 +1859,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ½ø»õÈ¨ÏŞ
+        ///   è¿›è´§æƒé™
         /// </summary>
         public Boolean Stock
         {
@@ -1868,7 +1868,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÏúÊÛÈ¨ÏŞ
+        ///   é”€å”®æƒé™
         /// </summary>
         public Boolean Vendition
         {
@@ -1877,7 +1877,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ¿â´æÈ¨ÏŞ
+        ///   åº“å­˜æƒé™
         /// </summary>
         public Boolean Storage
         {
@@ -1886,7 +1886,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   ÏµÍ³ÉèÖÃÈ¨ÏŞ
+        ///   ç³»ç»Ÿè®¾ç½®æƒé™
         /// </summary>
         public Boolean SystemSet
         {
@@ -1895,7 +1895,7 @@ namespace EMS.BaseClass
         }
 
         /// <summary>
-        ///   »ù±¾ĞÅÏ¢È¨ÏŞ
+        ///   åŸºæœ¬ä¿¡æ¯æƒé™
         /// </summary>
         public Boolean Base_Info
         {
